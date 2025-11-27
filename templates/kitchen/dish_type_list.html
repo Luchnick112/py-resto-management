@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dish Types List</h1>
+  {% if dish_type_list %}
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Update</td>
+        <td>Delete</td>
+      </tr>
+      {% for dish_type in dish_type_list %}
+        <tr>
+          <th>{{ dish_type.id }}</th>
+          <th>{{ dish_type.name}}</th>
+          <th><a href="#">UPDATE</a></th>
+          <th><a href="#">DELETE</a></th>
+        </tr>
+      {% endfor %}
+    </table>
+      {% else %}
+    <p>There are no dish types in Restaurant</p>
+  {% endif %}
+{% endblock %}

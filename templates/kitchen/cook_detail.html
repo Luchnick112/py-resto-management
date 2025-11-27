@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cook Detail Info</h1>
+  <p><strong>Cook ID:</strong>    {{ cook.id }}</p>
+  <p><strong>Cook Username:</strong>     {{ cook.username}}</p>
+  <p><strong>Cook Last Name:</strong>     {{ cook.first_name }}</p>
+  <p><strong>Cook First Name:</strong>     {{ cook.last_name }}</p>
+  <p><strong>Years of experience:</strong>     {{ cook.years_of_experience }}</p>
+    <h4>Cook Dishes:</h4>
+    <ul>
+    {% for dish in cook.dishes.all %}
+      <li>{{ dish.name }} {{ dish.dish_type.name }} - {{ dish.price }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dish Detail Info</h1>
+  <p><strong>Dish ID:</strong>    {{ dish.id }}</p>
+  <p><strong>Dish Name:</strong>     {{ dish.name}}</p>
+  <p><strong>Dish Type:</strong>     {{ dish.dish_type.name }}</p>
+  <p><strong>Dish Description:</strong>     {{ dish.description }}</p>
+  <p><strong>Dish Price:</strong>     {{ dish.price }}</p>
+  <p><strong>Cook:</strong>
+    {% for cook in dish.cooks.all %}
+      {{ cook.username }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+      No cooks
+    {% endfor %}
+  </p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dish List</h1>
+  {% if dish_list %}
+    <table>
+      <tr>
+        <th>Dish ID</th>
+        <th>Dish Name</th>
+        <th>Dish Type</th>
+        <th>Dish Description</th>
+        <th>Price</th>
+        <th>Cook</th>
+      </tr>
+      {% for dish in dish_list %}
+        <tr>
+          <td><a href="{{ dish.get_absolute_url }}">{{ dish.id }}</a></td>
+          <td>{{ dish.name }}</td>
+          <td>{{ dish.dish_type.name }}</td>
+          <td>{{ dish.description }}</td>
+          <td>{{ dish.price }}</td>
+          <td>
+            {% for cook in dish.cooks.all %}
+              {{ cook.username }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+              No cooks
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No dishes available.</p>
+  {% endif %}
+{% endblock %}
