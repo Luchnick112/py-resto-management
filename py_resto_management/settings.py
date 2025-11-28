@@ -27,11 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 AUTH_USER_MODEL = "kitchen.Cook"
 
 LOGIN_REDIRECT_URL = "/"
-
-LOGOUT_REDIRECT_URL = "/"
 
 # Application definition
 
