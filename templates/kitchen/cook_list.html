@@ -6,6 +6,7 @@
       <table>
         <tr>
           <th>Cook ID</th>
+          <th>Username</th>
           <th>Last Name</th>
           <th>First Name</th>
           <th>Experience</th>
@@ -13,6 +14,9 @@
         {% for cook in cook_list %}
           <tr>
             <td><a href="{{ cook.get_absolute_url }}">{{ cook.id }}</a></td>
+            <td>
+              {{ cook.username }}{% if cook == user %} (Me){% endif %}
+            </td>
             <td>{{ cook.last_name }}</td>
             <td>{{ cook.first_name }}</td>
             <td>{{ cook.years_of_experience }}</td>
