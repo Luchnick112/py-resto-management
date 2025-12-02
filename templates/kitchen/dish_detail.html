@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="d-flex justify-content-start gap-2 mb-4">
+    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-primary float-start mr-1">Update the dish</a>
+    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger mr-1">Delete the dish</a>
+  </div>
   <h1>Dish Detail Info</h1>
   <p><strong>Dish ID:</strong>    {{ dish.id }}</p>
   <p><strong>Dish Name:</strong>     {{ dish.name}}</p>
@@ -14,4 +18,15 @@
       No cooks
     {% endfor %}
   </p>
+  {% if user in dish.cooks.all %}
+      <form method="post" action="{% url 'kitchen:remove-cook' pk=dish.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete me from this dish</button>
+      </form>
+  {% else %}
+      <form method="post" action="{% url 'kitchen:assign-cook' pk=dish.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success">Assign me to this car</button>
+      </form>
+  {% endif %}
 {% endblock %}

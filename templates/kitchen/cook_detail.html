@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Cook Detail Info</h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="mb-0">Cook detail info:</h1>
+    <div>
+      <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" class="btn btn-danger link-to-page me-2">
+        Delete
+      </a>
+      <a href="{% url 'kitchen:cook-update' pk=cook.id %}" class="btn btn-primary link-to-page">
+        Update
+      </a>
+    </div>
+  </div>
+
+  <br>
   <p><strong>Cook ID:</strong>    {{ cook.id }}</p>
   <p><strong>Cook Username:</strong>     {{ cook.username}}</p>
   <p><strong>Cook Last Name:</strong>     {{ cook.first_name }}</p>
