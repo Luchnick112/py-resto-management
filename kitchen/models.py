@@ -3,9 +3,16 @@ from django.db import models
 from django.db.models import ForeignKey
 from django.urls import reverse
 
+from kitchen.validators import validate_years_of_experience
+
 
 class Cook(AbstractUser):
-    years_of_experience = models.PositiveIntegerField(default=0)
+    years_of_experience = models.PositiveIntegerField(
+        default=0,
+        validators=[validate_years_of_experience],
+        null=False,
+        blank=False
+    )
 
     def get_absolute_url(self):
         return reverse("kitchen:cook-detail", args=[str(self.id)])
