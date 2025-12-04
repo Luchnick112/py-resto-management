@@ -1,5 +1,15 @@
-{% extends "base.html" %}
+{% extends 'layouts/base-presentation.html' %}
+
 {% load crispy_forms_filters %}
+
+{% block title %} Cooks {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Cooks{% endblock page_title %}
 
 {% block content %}
   <h1>{{ object|yesno:"Update,Create" }} cook</h1>

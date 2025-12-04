@@ -1,5 +1,15 @@
-{% extends "base.html" %}
+{% extends 'layouts/base-presentation.html' %}
+
 {% load crispy_forms_filters %}
+
+{% block title %} Dish Types {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Dish Types{% endblock page_title %}
 
 {% block content %}
   <h1>
