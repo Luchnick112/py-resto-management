@@ -1,0 +1,22 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block title %} Dishes {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Dishes{% endblock page_title %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} dish</h1>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+{% endblock %}

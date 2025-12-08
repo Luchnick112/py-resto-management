@@ -1,0 +1,45 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block title %} Dish Types {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Dish Types{% endblock page_title %}
+
+{% block content %}
+  <h1>
+    Dish Types List
+    <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary link-to-page">
+       Create
+    </a>
+  </h1>
+    <form method="get" action="" class="form-inline">
+      {{ search_form|crispy }}
+      <input class="btn btn-secondary" type="submit" value="🔍">
+    </form>
+  {% if dish_type_list %}
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Update</td>
+        <td>Delete</td>
+      </tr>
+      {% for dish_type in dish_type_list %}
+        <tr>
+          <th>{{ dish_type.id }}</th>
+          <th>{{ dish_type.name}}</th>
+          <th><a href="{% url 'kitchen:dish-type-update' pk=dish_type.id%}">UPDATE</a></th>
+          <th><a href="{% url 'kitchen:dish-type-delete' pk=dish_type.id%}">DELETE</a></th>
+        </tr>
+      {% endfor %}
+    </table>
+      {% else %}
+    <p>There are no dish types in Restaurant</p>
+  {% endif %}
+{% endblock %}

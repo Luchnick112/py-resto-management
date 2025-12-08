@@ -1,0 +1,22 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% block title %} Cooks {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Cooks{% endblock page_title %}
+
+{% block content %}
+  <h1>Delete Cook</h1>
+
+  <p>Are you sure you want to delete the dish: {{ cook }}</p>
+  <form action="" method="post">
+    {% csrf_token %}
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+      <a href="{% url 'kitchen:cook-detail' pk=cook.id %}" class="btn btn-primary">Cancel</a>
+  </form>
+
+{% endblock %}

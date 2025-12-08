@@ -1,0 +1,56 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block title %} Dishes {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Dishes{% endblock page_title %}
+
+{% block content %}
+  <h1>
+    Dish List
+    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
+    Create
+    </a>
+  </h1>
+  <form method="get" action="" class="form-inline">
+    {{ search_form|crispy }}
+    <input class="btn btn-secondary" type="submit" value="🔍">
+  </form>
+  <br>
+  {% if dish_list %}
+    <table>
+      <tr>
+        <th>Dish ID</th>
+        <th>Dish Name</th>
+        <th>Dish Type</th>
+        <th>Dish Description</th>
+        <th>Price</th>
+        <th>Cook</th>
+      </tr>
+      {% for dish in dish_list %}
+        <tr>
+          <td><a href="{{ dish.get_absolute_url }}">{{ dish.id }}</a></td>
+          <td>{{ dish.name }}</td>
+          <td>{{ dish.dish_type.name }}</td>
+          <td>{{ dish.description }}</td>
+          <td>{{ dish.price }}</td>
+          <td>
+            {% for cook in dish.cooks.all %}
+              {{ cook.username }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+              No cooks
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No dishes available.</p>
+  {% endif %}
+{% endblock %}

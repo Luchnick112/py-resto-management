@@ -1,6 +1,6 @@
 .idea/
 .venv
 **__pycache__
-*.sqlite3
 *.json
+*.sqlite3
 .env

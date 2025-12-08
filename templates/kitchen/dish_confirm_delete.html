@@ -1,0 +1,22 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% block title %} Dishes {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Dishes{% endblock page_title %}
+
+{% block content %}
+  <h1>Delete Dish</h1>
+
+  <p>Are you sure you want to delete the dish: {{ dish }}</p>
+  <form action="" method="post">
+    {% csrf_token %}
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+      <a href="{% url 'kitchen:dish-detail' pk=dish.id %}" class="btn btn-primary">Cancel</a>
+  </form>
+
+{% endblock %}

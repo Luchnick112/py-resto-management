@@ -1,0 +1,50 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block title %} Cooks {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block page_title %}Cooks{% endblock page_title %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0">Cook List</h1>
+      <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </div>
+    <form method="get" action="" class="form-inline">
+      {{ search_form|crispy }}
+      <input class="btn btn-secondary" type="submit" value="🔍">
+    </form>
+
+    {% if cook_list %}
+      <table>
+        <tr>
+          <th>Cook ID</th>
+          <th>Username</th>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Experience</th>
+        </tr>
+        {% for cook in cook_list %}
+          <tr>
+            <td><a href="{{ cook.get_absolute_url }}">{{ cook.id }}</a></td>
+            <td>
+              {{ cook.username }}{% if cook == user %} (Me){% endif %}
+            </td>
+            <td>{{ cook.last_name }}</td>
+            <td>{{ cook.first_name }}</td>
+            <td>{{ cook.years_of_experience }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}
