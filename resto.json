@@ -1,0 +1,60 @@
+[
+  {
+    "model": "kitchen.cook",
+    "pk": 1,
+    "fields": {
+      "username": "chef_anna",
+      "first_name": "Anna",
+      "last_name": "Smith",
+      "years_of_experience": 5,
+      "password": "pbkdf2_sha256$..."
+    }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 2,
+    "fields": {
+      "username": "chef_boris",
+      "first_name": "Boris",
+      "last_name": "Becker",
+      "years_of_experience": 12,
+      "password": "pbkdf2_sha256$..."
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 1,
+    "fields": {
+      "name": "Italian"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 2,
+    "fields": {
+      "name": "Japanese"
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 1,
+    "fields": {
+      "name": "Spaghetti Carbonara",
+      "description": "Classic Roman pasta",
+      "price": "12.50",
+      "dish_type": 1,
+      "cooks": [1]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 2,
+    "fields": {
+      "name": "Sushi Set",
+      "description": "Assorted sushi rolls",
+      "price": "18.00",
+      "dish_type": 2,
+      "cooks": [2]
+    }
+  }
+]
