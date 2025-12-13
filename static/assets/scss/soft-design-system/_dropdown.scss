@@ -262,3 +262,16 @@
    min-width: $dropdown-lg-width-responsive;
  }
 }
+
+/* 🔧 Повністю вимикаємо скрол у мобільному dropdown */
+@media (max-width: 991.98px) {
+  .dropdown.nav-item .dropdown-menu {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .dropdown.nav-item .dropdown-menu-animation {
+    height: auto !important;
+    max-height: none !important;
+  }
+}
