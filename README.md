@@ -3,6 +3,8 @@
 
 A web application built with **Django** for managing a restaurant's internal processes — dishes, dish types, and cooks.
 
+---
+
 ## 🔭 Check it out!
 
 [Resto Management project deployed to Render](https://resto-mfux.onrender.com/)
@@ -61,4 +63,12 @@ Python3 must be already installed
 
 ![Demo.png](Demo.png)
 
+---
 
+## 🔑 Test User Credentials
+
+Для перевірки роботи сайту можна використати тестового користувача:
+For test login you may use the following user:
+
+- **Username:** user  
+- **Password:** user12345
