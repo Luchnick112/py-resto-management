@@ -5,7 +5,7 @@ A web application built with **Django** for managing a restaurant's internal pro
 
 ## 🔭 Check it out!
 
-[Resto Management project deployed to Render](resto-mfux.onrender.com)
+[Resto Management project deployed to Render](https://resto-mfux.onrender.com/)
 
 ---
 
@@ -60,4 +60,5 @@ Python3 must be already installed
 ## 🖥  Demo
 
 ![Demo.png](Demo.png)
+
 
