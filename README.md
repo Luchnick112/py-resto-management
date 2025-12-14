@@ -67,7 +67,7 @@ Python3 must be already installed
 
 ## 🔑 Test User Credentials
 
-For test login you may use the following user:
+For testing purposes, you can use the following credentials:
 
 - **Username:** user  
 - **Password:** user12345
