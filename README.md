@@ -67,7 +67,6 @@ Python3 must be already installed
 
 ## 🔑 Test User Credentials
 
-Для перевірки роботи сайту можна використати тестового користувача:
 For test login you may use the following user:
 
 - **Username:** user  
